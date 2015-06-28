@@ -8,3 +8,6 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+# Just some handy functions
+alias hosts="vim /etc/hosts"

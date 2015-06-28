@@ -1,7 +1,5 @@
 # Shell prompt based on the Solarized Dark theme.
-# Screenshot: http://i.imgur.com/EkEtphC.png
-# Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
-# iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
+# Heavily inspired by @mathiasbyens prompt: https://github.com/mathiasbynens/dotfiles
 
 autoload colors && colors
 
