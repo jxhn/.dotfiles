@@ -1,23 +1,37 @@
-" Setup pathogen
-execute pathogen#infect()
+set nocompatible
+
+" Install vim-plug if missing
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
+call plug#begin('~/.vim/bundle')
+
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+
+call plug#end()
+
+" Automatically reload .vimrc when saved
+augroup reload_vimrc
+	autocmd!
+
+" Enable 256 colors in terminal
+set t_Co=256
+
+" Enable syntax highlighting
 syntax enable
-" Setup color scheme to match terminal
+
+" Fix GitGutter column color
+highlight clear SignColumn
+
+" Enable Solarized Dark
 set background=dark
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+colorscheme solarized
 
-set number
-
-let g:unite_source_history_yank_enable = 1
-try
-	let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-	call unite#filters#matcher_default#use(['matcher_fuzzy'])
-catch
-endtry
-" search a file in the filetree
-nnoremap <space><space> :Unite file_rec<cr>
-" reset not it is <C-l> normally
-:nnoremap <space>r <Plug>(unite_restart)
-
-" setup universal project search with Ag
-nnoremap <space>/ :Ag
