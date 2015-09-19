@@ -3,7 +3,6 @@ execute pathogen#infect()
 syntax enable
 " Setup color scheme to match terminal
 set background=dark
-colorscheme solarized
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
@@ -16,7 +15,7 @@ try
 catch
 endtry
 " search a file in the filetree
-nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
+nnoremap <space><space> :Unite file_rec<cr>
 " reset not it is <C-l> normally
 :nnoremap <space>r <Plug>(unite_restart)
 
