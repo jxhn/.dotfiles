@@ -15,6 +15,12 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
+Plug 'majutsushi/tagbar'
+Plug 'kien/ctrlp.vim'
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+Plug 'Valloric/YouCompleteMe'
+Plug 'ramitos/jsctags'
+Plug 'myusuf3/numbers.vim'
 
 call plug#end()
 
@@ -28,10 +34,44 @@ set t_Co=256
 " Enable syntax highlighting
 syntax enable
 
+" Syntastic settings
+let g:syntastic_javascript_checkers=['jshint', 'eslint']
+
 " Fix GitGutter column color
 highlight clear SignColumn
+
+" Ctrl P ssettings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+
+" Set airline vars
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" Toggle Tagbar
+" Use <alt + 2>
+nnoremap ™ :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
+
+" Toggle Git gutter
+nnoremap <F2> :GitGutterSignsToggle<CR>
+
+" Bind relative line numbers
+nnoremap <F3> :NumbersToggle<CR>
 
 " Enable Solarized Dark
 set background=dark
 colorscheme solarized
 
+" Set some vim vars
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set number
+set splitbelow
+set splitright
+filetype on
