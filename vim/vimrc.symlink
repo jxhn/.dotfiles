@@ -22,6 +22,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'ramitos/jsctags'
 Plug 'myusuf3/numbers.vim'
 Plug 'edkolev/tmuxline.vim'
+Plug 'tpope/vim-obsession'
 
 call plug#end()
 
@@ -68,6 +69,8 @@ set background=dark
 colorscheme solarized
 
 " Set some vim vars
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
 set hlsearch
 set ignorecase
 set incsearch
