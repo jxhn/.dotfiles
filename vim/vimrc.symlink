@@ -23,6 +23,7 @@ Plug 'ramitos/jsctags'
 Plug 'myusuf3/numbers.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-obsession'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
@@ -71,6 +72,7 @@ colorscheme solarized
 " Set some vim vars
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
+cnoremap sudow w !sudo tee % >/dev/null
 set hlsearch
 set ignorecase
 set incsearch
