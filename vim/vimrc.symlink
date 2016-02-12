@@ -11,19 +11,18 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'majutsushi/tagbar'
 Plug 'kien/ctrlp.vim'
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 Plug 'Valloric/YouCompleteMe'
-Plug 'ramitos/jsctags'
-Plug 'myusuf3/numbers.vim'
+Plug 'ramitos/jsctags', { 'for': 'javascript' }
 Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-obsession'
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
 
 call plug#end()
 
@@ -31,12 +30,17 @@ call plug#end()
 augroup reload_vimrc
 	autocmd!
 
+" YCM close scratch
+autocmd CompleteDone * pclose
+
 " Enable 256 colors in terminal
 set t_Co=256
 
 " Enable syntax highlighting
 syntax enable
 
+" Notes settings
+let g:notes_directories = ['~/Code/Notes']
 " Syntastic settings
 let g:syntastic_javascript_checkers=['jshint', 'eslint']
 
@@ -47,7 +51,8 @@ highlight clear SignColumn
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))|tags$'
+let g:ctrlp_extensions = ['tag']
 
 " Set airline vars
 let g:airline#extensions#tabline#enabled = 1
@@ -62,9 +67,6 @@ let g:tagbar_autoclose = 1
 " Toggle Git gutter
 nnoremap <F2> :GitGutterSignsToggle<CR>
 
-" Bind relative line numbers
-nnoremap <F3> :NumbersToggle<CR>
-
 " Enable Solarized Dark
 set background=dark
 colorscheme solarized
@@ -77,7 +79,6 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
-set number
 set splitbelow
 set splitright
 filetype on
