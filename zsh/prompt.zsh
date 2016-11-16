@@ -54,7 +54,7 @@ prompt_git() {
 
     [ -n "${s}" ] && s=" [${s}]";
 
-    echo "%F{015}on%f %F{061}${1}${branchName}%f%F{033}${s}%";
+    echo "%F{015}on%f %F{061}%{\x1b[3m%}${1}${branchName}%{\x1b[0m%}%f%F{033}${s}%";
   else
     return;
   fi;
