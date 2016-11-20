@@ -93,6 +93,10 @@ set laststatus=2
 set splitbelow
 set splitright
 
+" Line numbers
+set number
+set relativenumber
+
 " Autosave
 autocmd CursorHold,CursorHoldI,InsertLeave * silent! wall
 
@@ -122,6 +126,13 @@ highlight Comment cterm=italic
 "*****************************************************************************
 " Mappings
 "*****************************************************************************
+
+" Map Leader to space
+let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
+
+" Fast editing of vimrc
+map <leader>e :e! ~/.vimrc<cr>
 
 " Tabs (well buffers)
 nnoremap <Tab> :bnext<CR>
@@ -164,9 +175,13 @@ cnoremap sudow w !sudo tee % >/dev/null
 " YCM close scratch
 autocmd CompleteDone * pclose
 let g:ycm_confirm_extra_conf = 1
+
+" Javascript shorthand
+set cole=1
 let g:javascript_conceal_arrow_function = "⇒"
 let g:javascript_conceal_function       = "ƒ"
 let g:javascript_conceal_null           = "ø"
+let g:javascript_conceal_this           = "@"
 
 " Notes settings
 let g:notes_directories = ['~/Code/Notes']
@@ -196,6 +211,10 @@ let g:tagbar_autoclose = 1
 " Git gutter
 nnoremap <F2> :GitGutterSignsToggle<CR>
 highlight clear SignColumn
+highlight link GitGutterAdd GruvboxGreen
+highlight link GitGutterChange GruvboxAqua
+highlight link GitGutterDelete GruvboxRed
+highlight link GitGutterChangeDelete GruvboxAqua
 
 " Utilsnips
 let g:UltiSnipsExpandTrigger = '<C-l>'
