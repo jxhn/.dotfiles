@@ -26,13 +26,15 @@ Plug 'kshenoy/vim-signature'
 " Code Prettifiers/Helpers
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/syntastic'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-vinegar'
 Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/Colorizer'
 Plug 'janko-m/vim-test'
 Plug 'jiangmiao/auto-pairs'
+Plug 'editorconfig/editorconfig-vim'
 
 " Frontend Dev
 Plug 'pangloss/vim-javascript',
@@ -44,6 +46,7 @@ Plug 'mattn/emmet-vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'mustache/vim-mustache-handlebars'
 
 " Snippets
 Plug 'honza/vim-snippets'
