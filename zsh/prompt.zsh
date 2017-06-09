@@ -61,7 +61,7 @@ prompt_git() {
 }
 
 NEWLINE=$'\n';
-PROMPT='%F{166}%n%f %F{015}at%f %F{136}%m%f %F{015}in%f %F{064}%~%f $(prompt_git) ${NEWLINE}%F{015}%(!.#.$)%f '
+PROMPT='%F{166}%n%f %F{015}on%f %F{136}%m%f %F{015}in%f %F{064}%~%f $(prompt_git) ${NEWLINE}%F{015}%(!.#.$)%f '
 
 
 # Set the terminal title to the current working directory.

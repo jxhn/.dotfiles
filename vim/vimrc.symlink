@@ -27,7 +27,6 @@ Plug 'kshenoy/vim-signature'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/syntastic'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-vinegar'
 Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-surround'
@@ -46,7 +45,6 @@ Plug 'mattn/emmet-vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'mustache/vim-mustache-handlebars'
 
 " Snippets
 Plug 'honza/vim-snippets'
@@ -95,6 +93,7 @@ set updatetime=1000
 set laststatus=2
 set splitbelow
 set splitright
+set nowrap
 
 " Line numbers
 set number
@@ -124,6 +123,8 @@ colorscheme gruvbox
 set t_Co=256
 
 " Set comments to autoitalic
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
 highlight Comment cterm=italic
 
 "*****************************************************************************
@@ -154,6 +155,10 @@ noremap <Leader>gd :Gvdiff<CR>
 " Close buffer
 noremap <Leader>c :bd<CR>
 
+" Quickly insert an empty new line without entering insert mode
+nnoremap <Leader>o o<Esc>
+nnoremap <Leader>O O<Esc>
+
 "*****************************************************************************
 " Abbreviations
 "*****************************************************************************
@@ -174,10 +179,12 @@ cnoremap sudow w !sudo tee % >/dev/null
 "*****************************************************************************
 " Plugin config
 "*****************************************************************************
-
-" YCM close scratch
-autocmd CompleteDone * pclose
+" YCM settings
 let g:ycm_confirm_extra_conf = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_filetype_blacklist = { 'html' : 1 }
+let g:ycm_semantic_triggers = { 'css': [ 're!^\s{4}', 're!:\s+' ],
+                             \ 'scss': [ 're!^\s{4}', 're!:\s+' ] }
 
 " Javascript shorthand
 set cole=1
@@ -205,6 +212,10 @@ let g:ctrlp_use_caching = 1
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+" Colorizer
+let g:colorizer_auto_filetype='css,html'
+let g:colorizer_skip_comments = 1
 
 " Tagbar
 nnoremap ™ :TagbarToggle<CR>
