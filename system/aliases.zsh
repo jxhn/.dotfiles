@@ -11,4 +11,3 @@ fi
 
 # Just some handy functions
 alias hosts="vim /etc/hosts"
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
