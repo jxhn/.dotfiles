@@ -54,14 +54,14 @@ prompt_git() {
 
     [ -n "${s}" ] && s=" [${s}]";
 
-    echo "%F{015}on%f %F{061}%{\x1b[3m%}${1}${branchName}%{\x1b[0m%}%f%F{033}${s}%";
+    echo "%F{white}on%f %F{blue}%{\x1b[3m%}${1}${branchName}%{\x1b[0m%}%f%F{white}${s}%";
   else
     return;
   fi;
 }
 
 NEWLINE=$'\n';
-PROMPT='%F{166}%n%f %F{015}on%f %F{136}%m%f %F{015}in%f %F{064}%~%f $(prompt_git) ${NEWLINE}%F{015}%(!.#.$)%f '
+PROMPT='%F{202}%n%f %F{white}on%f %F{yellow}%m%f %F{white}in%f %F{green}%~%f $(prompt_git) ${NEWLINE}%F{white}%(!.#.$)%f '
 
 
 # Set the terminal title to the current working directory.
